@@ -15,7 +15,7 @@ class ReservaController extends Controller
     public function index()
     {
         $reservas = Reservas::all();
-        return view('reservas.index', compact('reservas'));
+        return view('reserva.index', compact('reservas'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        return view('reservas.create');
+        return view('reserva.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class ReservaController extends Controller
             'fecha' => 'required'
         ]);
         Reservas::create($request->all());
-        return redirect()->route('reservas.index');
+        return redirect()->route('reserva.index');
     }
 
     /**
@@ -64,7 +64,7 @@ class ReservaController extends Controller
      */
     public function edit(Reservas $reserva)
     {
-        return view('reservas.edit', compact('reserva'));
+        return view('reserva.edit', compact('reserva'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ReservaController extends Controller
             'fecha' => 'required'
         ]);
         $reserva->update($request->all());
-        return redirect()->route('reservas.index');
+        return redirect()->route('reserva.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class ReservaController extends Controller
     public function destroy(Reservas $reserva)
     {
         $reserva->delete();
-        return redirect()->route('reservas.index');
+        return redirect()->route('reserva.index');
     }
 }

@@ -29,7 +29,7 @@
       <script>
         document.write(new Date().getFullYear())
       </script>, Realizado <i class="material-icons">favorite</i> por
-      <a href="https://www.novenaweb.cl" target="_blank">NOVENAWEB.CL</a> for a better web.
+      <a href="https://www.novenaweb.cl" target="_blank">NOVENAWEB</a> for a better web.
     </div>
   </div>
 </footer>
