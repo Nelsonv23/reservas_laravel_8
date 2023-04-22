@@ -65,5 +65,6 @@ Route::group(['middleware' => 'auth'], function () {
 //Rutas Controlador
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
-    //Route::post('reservas.create', 'App\Http\Controllers\ReservaController@create', ['except' => ['create']]);
+	Route::get('/reservas', [ReservaController::class, 'index'])->name('reserva.index');
+
 });

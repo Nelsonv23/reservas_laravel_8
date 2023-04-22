@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+      {{ __('Innova Sur Pro') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -14,13 +14,20 @@
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
+            <p>{{ __('Panel Administración') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'reservas' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('reserva.index') }}">
+          <i class="material-icons">content_paste</i>
+            <p>{{ __('Reservas') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-          <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>
-          <p>{{ __('Laravel Examples') }}
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+          <!-- <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i> -->
+          <i class="material-icons">manage_accounts</i>
+          <p>{{ __('Gestión de usuarios') }}
             <b class="caret"></b>
           </p>
         </a>
@@ -28,14 +35,16 @@
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
-                <span class="sidebar-mini"> UP </span>
-                <span class="sidebar-normal">{{ __('User profile') }} </span>
+                <!-- <span class="sidebar-mini"> UP </span> -->
+                <i class="material-icons">account_circle</i>
+                <span class="sidebar-normal">{{ __('Modificar su perfil') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+                <!-- <span class="sidebar-mini"> UM </span> -->
+                <i class="material-icons">group</i>
+                <span class="sidebar-normal"> {{ __('Modificar Usuarios') }} </span>
               </a>
             </li>
           </ul>
