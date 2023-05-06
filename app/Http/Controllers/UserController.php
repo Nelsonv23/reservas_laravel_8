@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\r;
+
 use Illuminate\Http\Request;
 
 class User extends Controller
@@ -14,7 +14,8 @@ class User extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = User::all();
+        return view('reserva.index', compact('reservas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class User extends Controller
      */
     public function create()
     {
-        //
+        return view('reserva.create');
     }
 
     /**
@@ -35,16 +36,22 @@ class User extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        User::create($request->all());
+        return redirect()->route('reserva.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\r  $r
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(r $r)
+    public function show($id)
     {
         //
     }
@@ -52,34 +59,40 @@ class User extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\r  $r
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(r $r)
+    public function edit($id, User $usuarios)
     {
-        //
+        return view('user.index', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\r  $r
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, r $r)
+    public function update(Request $request, $id, User $usuarios)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        User::create($request->all());
+        return redirect()->route('user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\r  $r
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(r $r)
+    public function destroy($id)
     {
-        //
+        return redirect()->route('user.index');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CondominioController;
 use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,5 +67,9 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas', [ReservaController::class, 'index'])->name('reserva.index');
+
+	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
+	Route::get('/condominios', [CondominioController::class, 'index'])->name('condominio.index');
+
 
 });

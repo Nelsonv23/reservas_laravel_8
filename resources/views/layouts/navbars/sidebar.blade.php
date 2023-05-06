@@ -19,8 +19,14 @@
       </li>
       <li class="nav-item{{ $activePage == 'reservas' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('reserva.index') }}">
-          <i class="material-icons">content_paste</i>
-            <p>{{ __('Reservas') }}</p>
+          <i class="material-icons">insert_invitation</i>
+            <p>{{ __('Gestión De Reservas') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'condominios' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('condominio.index') }}">
+          <i class="material-icons">apartment</i>
+            <p>{{ __('Gestión De Condominios') }}</p>
         </a>
       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
@@ -81,15 +87,15 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('language') }}">
+        <a class="nav-link" href="">
           <i class="material-icons">language</i>
           <p>{{ __('RTL Support') }}</p>
         </a>
       </li>
       <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
-        <a class="nav-link text-white bg-danger" href="{{ route('upgrade') }}">
+        <a class="nav-link text-white bg-danger" href="">
           <i class="material-icons text-white">unarchive</i>
-          <p>{{ __('Upgrade to PRO') }}</p>
+          <p>{{ __('Salir del sistema') }}</p>
         </a>
       </li>
     </ul>

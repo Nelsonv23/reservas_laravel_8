@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservas;
+use App\Models\Condominio;
 use Illuminate\Http\Request;
 
-class ReservaController extends Controller
+class CondominioController extends Controller
 {
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $reservas = Reservas::all();
-        return view('reserva.index', compact('reservas'));
+        $condominios = Condominio::all();
+        return view('condominio.index', compact('condominios'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        return view('reserva.create');
+        return view('condominio.create');
     }
 
     /**
@@ -37,12 +37,11 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'condominio' => 'required',
-            'departamento' => 'required',
-            'fecha' => 'required'
+            'nombre' => 'required',
+            'direccion' => 'required'
         ]);
-        Reservas::create($request->all());
-        return redirect()->route('reserva.index');
+        Condominio::create($request->all());
+        return redirect()->route('condominio.index');
     }
 
     /**
@@ -62,27 +61,26 @@ class ReservaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservas $reserva)
+    public function edit(Condominio $condominio)
     {
-        return view('reserva.edit', compact('reserva'));
+        return view('condominio.edit', compact('condominios'));
     }
 
     /**
-     * Update the specified resource in storage. 
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservas $reserva)
+    public function update(Request $request, Condominio $condominio)
     {
         $request->validate([
-            'condominio' => 'required',
-            'departamento' => 'required',
-            'fecha' => 'required'
+            'nombre' => 'required',
+            'direccion' => 'required'
         ]);
-        $reserva->update($request->all());
-        return redirect()->route('reserva.index');
+        $condominio->update($request->all());
+        return redirect()->route('condominio.index');
     }
 
     /**
@@ -91,9 +89,9 @@ class ReservaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservas $reserva)
+    public function destroy(Condominio $condominio)
     {
-        $reserva->delete();
-        return redirect()->route('reserva.index');
+        $condominio->delete();
+        return redirect()->route('condominio.index');
     }
 }
