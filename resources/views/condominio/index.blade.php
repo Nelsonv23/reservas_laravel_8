@@ -22,6 +22,7 @@
                                     <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Dirección</th>
+                                    <th>Acciones</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($condominios as $condominio)

@@ -23,6 +23,7 @@
                                     <th>Condominio</th>
                                     <th>Departamento</th>
                                     <th>Fecha</th>
+                                    <th>Acciones</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($reservas as $reserva)

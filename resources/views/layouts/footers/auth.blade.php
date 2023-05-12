@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div class="container-fluid">
+  <!-- <div class="container-fluid">
     <nav class="float-left">
       <ul>
         <li>
@@ -31,5 +31,5 @@
       </script>, Realizado <i class="material-icons">favorite</i> por
       <a href="https://www.novenaweb.cl" target="_blank">NOVENAWEB</a> for a better web.
     </div>
-  </div>
+  </div> -->
 </footer>

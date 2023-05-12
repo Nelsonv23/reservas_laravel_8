@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class User extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class User extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
-        return view('reserva.index', compact('reservas'));
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class User extends Controller
      */
     public function create()
     {
-        return view('reserva.create');
+        return view('users.create');
     }
 
     /**
@@ -39,10 +39,12 @@ class User extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'password_confirmation' => 'required'
+
         ]);
         User::create($request->all());
-        return redirect()->route('reserva.index');
+        return redirect()->route('user.index');
     }
 
     /**
@@ -62,9 +64,10 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, User $usuarios)
+    public function edit($id, User $users)
     {
-        return view('user.index', compact('user'));
+        $users = User::findOrFail($id);
+        return view('users.edit', compact('users'));
     }
 
     /**
@@ -91,8 +94,9 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $users)
     {
+        $users->delete();
         return redirect()->route('user.index');
     }
 }

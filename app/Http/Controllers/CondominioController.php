@@ -61,8 +61,9 @@ class CondominioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Condominio $condominio)
+    public function edit($id, Condominio $condominio)
     {
+        $condominio = Condominio::findOrFail($id);
         return view('condominio.edit', compact('condominios'));
     }
 
@@ -73,7 +74,7 @@ class CondominioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Condominio $condominio)
+    public function update(Request $request, $id, Condominio $condominio)
     {
         $request->validate([
             'nombre' => 'required',

@@ -1,18 +1,19 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'register', 'title' => __('Innova Pro Sur')])
+@extends('layouts.app', ['activePage' => 'user', 'titlePage' => __('Crear Usuario')])
 
 @section('content')
-<div class="container" style="height: auto;">
-  <div class="row align-items-center">
-    <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-      <form class="form" method="POST" action="{{ route('register') }}">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+        <form class="form" method="POST" action="{{ route('users.store') }}">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
           <div class="card-header card-header-primary text-center">
-            <h4 class="card-title"><strong>{{ __('Registrar usuario') }}</strong></h4>
+            <h4 class="card-title"><strong>{{ __('Crear nuevo usuario') }}</strong></h4>
           </div>
           <div class="card-body ">
-            <p class="card-description text-center">{{ __('Ingrese datos del ususario') }}</p>
+            <p class="card-description text-center">{{ __('Ingrese datos del nuevo ususario y acontinuación "Crear Usuario"') }}</p>
             <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -50,7 +51,7 @@
                     <i class="material-icons">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Comtraseña...') }}" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Contraseña...') }}" required>
               </div>
               @if ($errors->has('password'))
                 <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">
@@ -79,16 +80,17 @@
                 <span class="form-check-sign">
                   <span class="check"></span>
                 </span>
-                {{ __('estoy de acuerdo con la ') }} <a href="#">{{ __('Politica de privacidad') }}</a>
+                {{ __('estoy de acuerdo con ') }} <a href="#">{{ __('Los cambios efectuados') }}</a>
               </label>
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Crear Cuenta') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('Crear Usuario') }}</button>
           </div>
         </div>
       </form>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 @endsection

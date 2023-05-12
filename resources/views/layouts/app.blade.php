@@ -16,6 +16,7 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -29,7 +30,7 @@
         @endguest
         @if (auth()->check())
         <div class="fixed-plugin">
-          <div class="dropdown show-dropdown">
+          <!-- <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
             </a>
@@ -72,12 +73,12 @@
               <li class="button-container">
                 <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
               </li>
-              <!-- <li class="header-title">Want more components?</li>
+              <li class="header-title">Want more components?</li>
                   <li class="button-container">
                       <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                         Get the pro version
                       </a>
-                  </li> -->
+                  </li>
               <li class="button-container">
                 <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
                   View Documentation
@@ -99,7 +100,7 @@
                 <br>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
         @endif
         <!--   Core JS Files   -->

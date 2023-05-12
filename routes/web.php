@@ -63,13 +63,25 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
-//Rutas Controlador
+//Rutas Controlador reservas
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas', [ReservaController::class, 'index'])->name('reserva.index');
 
 	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios', [CondominioController::class, 'index'])->name('condominio.index');
+
+	Route::resource('users/create', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/users', [UserController::class, 'create'])->name('users.create');
+
+	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/users', [UserController::class, 'store'])->name('users.store');
+
+	Route::resource('users/index', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/users', [UserController::class, 'edit'])->name('users.edit');
 
 
 });
