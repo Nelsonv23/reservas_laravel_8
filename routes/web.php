@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+	return view('auth.login');
 });
 
 Auth::routes();
@@ -63,14 +63,27 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
-//Rutas Controlador reservas
+//Rutas Controlador 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
-	Route::get('/reservas', [ReservaController::class, 'index'])->name('reserva.index');
 
+	//Rutas Reservas
+	Route::resource('reserva', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
+	Route::get('/reservas/index', [ReservaController::class, 'index'])->name('reserva.index');
+
+	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
+	Route::get('/reservas/create', [ReservaController::class, 'create'])->name('reservas.create');
+
+	Route::resource('reservas/store', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
+	Route::get('/reservas', [ReservaController::class, 'store'])->name('reservas.store');
+
+	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
+	Route::get('/reservas/edit/{id}', [ReservaController::class, 'edit'])->name('reservas.edit');
+
+	//Rutas Condominios
 	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios', [CondominioController::class, 'index'])->name('condominio.index');
 
+	//Rutas Users
 	Route::resource('users/create', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'create'])->name('users.create');
 
@@ -82,6 +95,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'edit'])->name('users.edit');
-
-
 });

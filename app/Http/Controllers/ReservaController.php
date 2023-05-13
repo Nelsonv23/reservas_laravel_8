@@ -64,6 +64,7 @@ class ReservaController extends Controller
      */
     public function edit($id, Reservas $reserva)
     {
+        $reserva = Reservas::findOrFail($id);
         return view('reserva.edit', compact('reserva'));
     }
 
@@ -81,7 +82,7 @@ class ReservaController extends Controller
             'departamento' => 'required',
             'fecha' => 'required'
         ]);
-        $reserva->update($request->all());
+        $reserva->create($request->all());
         return redirect()->route('reserva.index');
     }
 

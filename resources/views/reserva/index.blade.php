@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-12 text-left">
-                        <a href="{{ route('reservas.create') }}" class="btn btn-info">Crear Reserva</a>
+                        <a href="{{ route('reservas.create') }}" class="btn btn-info">Nueva Reserva</a>
                     </div>
                 </div>
                 <div class="card">
@@ -20,8 +20,8 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>ID</th>
-                                    <th>Condominio</th>
                                     <th>Departamento</th>
+                                    <th>Condominio</th>
                                     <th>Fecha</th>
                                     <th>Acciones</th>
                                 </thead>
@@ -29,8 +29,8 @@
                                     @foreach ($reservas as $reserva)
                                     <tr>
                                         <td> {{ $reserva->id }} </td>
-                                        <td> {{ $reserva->condominio }} </td>
                                         <td> {{ $reserva->departamento }} </td>
+                                        <td> {{ $reserva->condominio }} </td>
                                         <td> {{ $reserva->fecha }} </td>
                                         <td>
                                             <form action="{{ route('reservas.destroy', $reserva->id) }}" method="post">

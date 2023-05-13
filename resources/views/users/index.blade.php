@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-12 text-left">
-                        <a href="{{ route('users.create') }}" class="btn btn-info">Crear Nuevo Usuario</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-info">Nuevo Usuario</a>
                     </div>
                 </div>
                 <div class="card">

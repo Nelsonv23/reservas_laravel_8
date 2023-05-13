@@ -80,7 +80,7 @@ class CondominioController extends Controller
             'nombre' => 'required',
             'direccion' => 'required'
         ]);
-        $condominio->update($request->all());
+        Condominio::create($request->all());
         return redirect()->route('condominio.index');
     }
 

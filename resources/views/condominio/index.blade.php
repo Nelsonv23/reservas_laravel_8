@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-12 text-left">
-                        <a href="{{ route('condominios.create') }}" class="btn btn-info">Agregar Nuevo Condominio</a>
+                        <a href="{{ route('condominios.create') }}" class="btn btn-info">Nuevo Condominio</a>
                     </div>
                 </div>
                 <div class="card">
