@@ -70,51 +70,26 @@ Route::group(['middleware' => 'auth'], function () {
 	//Rutas Reservas
 	Route::resource('reserva', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas/index', [ReservaController::class, 'index'])->name('reserva.index');
-
 	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas/create', [ReservaController::class, 'create'])->name('reservas.create');
-
-	Route::resource('reservas/store', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas', [ReservaController::class, 'store'])->name('reservas.store');
-
-	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas/edit/{id}', [ReservaController::class, 'edit'])->name('reservas.edit');
-
-	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::put('/reservas/update/{id}', [ReservaController::class, 'update'])->name('reservas.update');
 
 	//Rutas Condominios
 	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios/index', [CondominioController::class, 'index'])->name('condominio.index');
-
-	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios/create', [CondominioController::class, 'create'])->name('condominios.create');
-
-	Route::resource('condominios/store', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios', [CondominioController::class, 'store'])->name('condominios.store');
-
-	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::get('/condominios/edit/{id}', [CondominioController::class, 'edit'])->name('condominios.edit');
-
-	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
 	Route::put('/condominios/update/{id}', [CondominioController::class, 'update'])->name('condominio.update');
 
 	//Rutas Users
 	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users/index', [UserController::class, 'index'])->name('users.index');
-
-	Route::resource('users/create', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'create'])->name('users.create');
-
-	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'store'])->name('users.store');
-
-	Route::resource('users/index', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'index'])->name('users.index');
-
-	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-
-	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
 });

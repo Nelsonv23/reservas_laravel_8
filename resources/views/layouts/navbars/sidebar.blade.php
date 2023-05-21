@@ -27,7 +27,7 @@
       <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
         <a class="nav-link" href="">
           <i class="material-icons">language</i>
-          <p>{{ __('Calendario') }}</p>
+          <p>{{ __('Calendario Reservas') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'condominios' ? ' active' : '' }}">
