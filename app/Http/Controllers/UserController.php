@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create')->with('success', 'Usuario creado correctamente');
     }
 
     /**
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         ]);
         User::create($request->all());
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'Usuario Creado Correctamente');
     }
 
     /**
@@ -64,10 +64,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, User $users)
+    public function edit(User $user)
     {
-        $users = User::findOrFail($id);
-        return view('users.edit', compact('users'));
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -77,15 +76,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, User $usuarios)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-        User::create($request->all());
-        return redirect()->route('user.index');
+        $user = User::findOrFail($id);
+        $data = $request->only('name', 'email');
+        if (trim($request->password) == '')
+        {
+            $data = $request->except('password');
+        }
+        else {
+            $data = $request->all();
+            $data['password']=bcrypt($request->password);
+        }
+        $user->update($data);
+        return redirect()->route('user.index')->with('success', 'Ususario actualizado correctamente');
     }
 
     /**
@@ -94,9 +98,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $users)
+    public function destroy(User $user)
     {
-        $users->delete();
-        return redirect()->route('user.index');
+        $user->delete();
+        return redirect()->route('user.index')->with('success', 'Ususario eliminado correctamente');
     }
 }

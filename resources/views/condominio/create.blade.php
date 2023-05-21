@@ -48,6 +48,17 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Ciudad') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('ciudad') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('ciudad') ? ' is-invalid' : '' }}" name="ciudad" id="input-ciudad" type="text" placeholder="{{ __('Ciudad') }}" value="{{ old('ciudad') }}" required />
+                      @if ($errors->has('ciudad'))
+                        <span id="ciudad-error" class="error text-danger" for="input-ciudad">{{ $errors->first('ciudad') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>

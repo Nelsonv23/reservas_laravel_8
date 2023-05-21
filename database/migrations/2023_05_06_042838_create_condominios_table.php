@@ -17,6 +17,7 @@ class CreateCondominiosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('direccion');
+            $table->string('ciudad');
             $table->timestamps();
         });
     }

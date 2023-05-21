@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CondominioController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,11 +80,29 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
 	Route::get('/reservas/edit/{id}', [ReservaController::class, 'edit'])->name('reservas.edit');
 
+	Route::resource('reservas', 'App\Http\Controllers\ReservaController', ['except' => ['show']]);
+	Route::put('/reservas/update/{id}', [ReservaController::class, 'update'])->name('reservas.update');
+
 	//Rutas Condominios
 	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
-	Route::get('/condominios', [CondominioController::class, 'index'])->name('condominio.index');
+	Route::get('/condominios/index', [CondominioController::class, 'index'])->name('condominio.index');
+
+	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
+	Route::get('/condominios/create', [CondominioController::class, 'create'])->name('condominios.create');
+
+	Route::resource('condominios/store', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
+	Route::get('/condominios', [CondominioController::class, 'store'])->name('condominios.store');
+
+	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
+	Route::get('/condominios/edit/{id}', [CondominioController::class, 'edit'])->name('condominios.edit');
+
+	Route::resource('condominios', 'App\Http\Controllers\CondominioController', ['except' => ['show']]);
+	Route::put('/condominios/update/{id}', [CondominioController::class, 'update'])->name('condominio.update');
 
 	//Rutas Users
+	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('/users/index', [UserController::class, 'index'])->name('users.index');
+
 	Route::resource('users/create', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('/users', [UserController::class, 'create'])->name('users.create');
 
@@ -94,5 +113,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::get('/users', [UserController::class, 'edit'])->name('users.edit');
+	Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+	Route::resource('users', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
 });

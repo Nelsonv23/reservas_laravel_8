@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Condominio extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','direccion']; 
+    protected $fillable = ['nombre','direccion', 'ciudad']; 
 }

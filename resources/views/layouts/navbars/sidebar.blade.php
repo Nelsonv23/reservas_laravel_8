@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="orange" data-background-color="white" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
+<div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -22,6 +22,12 @@
         <a class="nav-link" href="{{ route('reserva.index') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Gestión De Reservas') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
+        <a class="nav-link" href="">
+          <i class="material-icons">language</i>
+          <p>{{ __('Calendario') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'condominios' ? ' active' : '' }}">
@@ -91,12 +97,6 @@
         <a class="nav-link" href="{{ route('notifications') }}">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="">
-          <i class="material-icons">language</i>
-          <p>{{ __('RTL Support') }}</p>
         </a>
       </li>
       <li class="nav-item active-pro{{ $activePage == 'logout' ? ' active' : '' }}">

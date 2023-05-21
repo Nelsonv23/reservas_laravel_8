@@ -10,15 +10,15 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Used Space</p>
-              <h3 class="card-title">49/50
-                <small>GB</small>
+              <p class="card-category">Total Reservas Mes</p>
+              <h3 class="card-title">34
+                <small>Días</small>
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-danger">warning</i>
-                <a href="#pablo">Get More Space...</a>
+                <a href="http://reservas_laravel_8.test/reservas/index">Ver listado de reservas...</a>
               </div>
             </div>
           </div>

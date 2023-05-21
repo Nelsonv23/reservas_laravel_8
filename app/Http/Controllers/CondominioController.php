@@ -38,10 +38,11 @@ class CondominioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'direccion' => 'required'
+            'direccion' => 'required',
+            'ciudad' => 'required'
         ]);
         Condominio::create($request->all());
-        return redirect()->route('condominio.index');
+        return redirect()->route('condominio.index')->with('success', 'Condominio creado correctamente');
     }
 
     /**
@@ -64,7 +65,7 @@ class CondominioController extends Controller
     public function edit($id, Condominio $condominio)
     {
         $condominio = Condominio::findOrFail($id);
-        return view('condominio.edit', compact('condominios'));
+        return view('condominio.edit', compact('condominio'));
     }
 
     /**
@@ -74,14 +75,12 @@ class CondominioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Condominio $condominio)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'direccion' => 'required'
-        ]);
-        Condominio::create($request->all());
-        return redirect()->route('condominio.index');
+        $condominio = Condominio::findOrFail($id);
+        $data = $request->only('nombre', 'direccion', 'ciudad');
+        $condominio->update($data);
+        return redirect()->route('condominio.index')->with('success', 'Condominio editado correctamente');
     }
 
     /**
@@ -93,6 +92,6 @@ class CondominioController extends Controller
     public function destroy(Condominio $condominio)
     {
         $condominio->delete();
-        return redirect()->route('condominio.index');
+        return redirect()->route('condominio.index')->with('success', 'Condominio eliminado correctamente');
     }
 }

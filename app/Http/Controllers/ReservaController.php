@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservas;
 use Illuminate\Http\Request;
 
+
 class ReservaController extends Controller
 {
     /**
@@ -37,12 +38,13 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'condominio' => 'required',
             'departamento' => 'required',
-            'fecha' => 'required'
+            'condominio' => 'required',
+            'fecha' => 'required',
+
         ]);
         Reservas::create($request->all());
-        return redirect()->route('reserva.index');
+        return redirect()->route('reserva.index')->with('success', 'reserva Creada Correctamente');
     }
 
     /**
@@ -65,7 +67,7 @@ class ReservaController extends Controller
     public function edit($id, Reservas $reserva)
     {
         $reserva = Reservas::findOrFail($id);
-        return view('reserva.edit', compact('reserva'));
+        return view('reserva.edit', compact('reserva'))->with('success', 'Reserva actualizada correctamente');
     }
 
     /**
@@ -75,15 +77,12 @@ class ReservaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reservas $reserva)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'condominio' => 'required',
-            'departamento' => 'required',
-            'fecha' => 'required'
-        ]);
-        $reserva->create($request->all());
-        return redirect()->route('reserva.index');
+        $reserva = Reservas::findOrFail($id);
+        $data = $request->only('departamento', 'condominio', 'fecha');
+        $reserva->update($data);
+        return redirect()->route('reserva.index')->with('success', 'Reserva actualizada correctamente');
     }
 
     /**
@@ -95,6 +94,6 @@ class ReservaController extends Controller
     public function destroy(Reservas $reserva)
     {
         $reserva->delete();
-        return redirect()->route('reserva.index');
+        return redirect()->route('reserva.index')->with('success', 'Reserva eliminada correctamente');
     }
 }

@@ -7,7 +7,8 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-12 text-left">
-                        <a href="{{ route('users.create') }}" class="btn btn-info">Nuevo Usuario</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-info">
+                        <i class="material-icons">add_circle</i> Nuevo Usuario</a>
                     </div>
                 </div>
                 <div class="card">
@@ -16,6 +17,11 @@
                         <p class="card-category"> Listado De Usuarios Temuco</p>
                     </div>
                     <div class="card-body">
+                        @if (session('success'))
+                        <div class="alert alert-success" role="success">
+                        {{ session('success') }}
+                        </div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">

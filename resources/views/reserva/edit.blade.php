@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('reserva.update', $reserva->id) }}" class="form-horizontal">
+          <form method="POST" action="{{ route('reserva.update', $reserva->id) }}" class="form-horizontal">
             @csrf
             @method('PUT')
             <div class="card ">
@@ -30,7 +30,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Departamento') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('departamento') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('departamento') ? ' is-invalid' : '' }}" name="departamento" id="input-departamento" type="text" placeholder="{{ __('Departamento') }}" value="{{ old('departamento') }}" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('departamento') ? ' is-invalid' : '' }}" name="departamento" id="input-departamento" type="text" value="{{ $reserva->departamento }}" required="true" aria-required="true"/>
                       @if ($errors->has('departamento'))
                         <span id="departamento-error" class="error text-danger" for="input-departamento">{{ $errors->first('departamento') }}</span>
                       @endif
@@ -41,7 +41,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Condominio') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('condominio') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('condominio') ? ' is-invalid' : '' }}" name="condominio" id="input-condominio" type="text" placeholder="{{ __('Condominio') }}" value="{{ old('condominio') }}" required />
+                      <input class="form-control{{ $errors->has('condominio') ? ' is-invalid' : '' }}" name="condominio" id="input-condominio" type="text" value="{{ $reserva->condominio }}" required />
                       @if ($errors->has('condominio'))
                         <span id="condominio-error" class="error text-danger" for="input-condominio">{{ $errors->first('condominio') }}</span>
                       @endif
@@ -52,7 +52,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Fecha') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('fecha') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('fecha') ? ' is-invalid' : '' }}" name="fecha" id="input-fecha" type="date" placeholder="{{ __('Fecha') }}" value="{{ old('fecha') }}" required />
+                      <input class="form-control{{ $errors->has('fecha') ? ' is-invalid' : '' }}" name="fecha" id="input-fecha" type="date" value="{{ $reserva->fecha }}" required />
                       @if ($errors->has('fecha'))
                         <span id="fecha-error" class="error text-danger" for="input-fecha">{{ $errors->first('fecha') }}</span>
                       @endif
