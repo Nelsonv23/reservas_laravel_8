@@ -57,7 +57,7 @@
                 </div>
               @endif
             </div>
-            <div class="form-check mr-auto ml-3 mt-3">
+            <div class="form-check ml-3 mt-4">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Recordar usuario') }}
                 <span class="form-check-sign">
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Ingresar') }}</button>
+            <button type="submit" class="btn btn-primary btn-lg">{{ __('Ingresar') }}</button>
           </div>
         </div>
       </form>

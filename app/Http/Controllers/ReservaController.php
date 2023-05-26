@@ -41,7 +41,6 @@ class ReservaController extends Controller
             'departamento' => 'required',
             'condominio' => 'required',
             'fecha' => 'required',
-
         ]);
         Reservas::create($request->all());
         return redirect()->route('reserva.index')->with('success', 'reserva Creada Correctamente');

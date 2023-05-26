@@ -73,7 +73,7 @@
                 </div>
               @endif
             </div>
-            <div class="form-check mr-auto ml-3 mt-3">
+            <div class="form-check mr-auto ml-3 mt-4">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" id="policy" name="policy" {{ old('policy', 1) ? 'checked' : '' }} >
                 <span class="form-check-sign">
@@ -84,7 +84,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Crear Cuenta') }}</button>
+            <button type="submit" class="btn btn-primary btn-lg">{{ __('Crear Cuenta') }}</button>
           </div>
         </div>
       </form>
