@@ -24,9 +24,9 @@
             <p>{{ __('Gestión De Reservas') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
-        <a class="nav-link" href="">
-          <i class="material-icons">language</i>
+      <li class="nav-item{{ $activePage == 'evento' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('evento.index') }}">
+          <i class="material-icons">insert_invitation</i>
           <p>{{ __('Calendario Reservas') }}</p>
         </a>
       </li>

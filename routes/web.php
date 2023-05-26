@@ -3,6 +3,7 @@
 use App\Http\Controllers\CondominioController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,4 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/users', [UserController::class, 'index'])->name('users.index');
 	Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 	Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
+
+	//Rutas Agenda
+	Route::get('/evento', [EventoController::class, 'index'])->name('evento.index');
 });
