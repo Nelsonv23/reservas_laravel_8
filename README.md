@@ -2,7 +2,8 @@
 
 ## Descripción
 
-Mini Aplicación realizada para https://innovaprosur.cl. Tiene como finalidad realizar reservas de espacios para diferentes condominios de la ciudad, contiene lo necesarios para guardar y mostrar información de usuarios, condominios, reservas y calendario de reservas. Algunas de sus caracteristicas:
+Mini Aplicación realizada para https://innovaprosur.cl. Tiene como objetivo realizar reservas de espacios, para diferentes condominios de la ciudad, contiene lo necesarios para guardar y mostrar información de usuarios, condominios, reservas y calendario de reservas. Algunas de sus caracteristicas:
+
 - Login de usuarios.
 - Menú de gestión de reservas.
 - Menú de gestión de usuarios.
@@ -36,10 +37,6 @@ La aplicación se desarrolló utilizando las siguientes tecnologías:
 
 La aplicación se puede desplegar en un servidor web utilizando cualquier proveedor de alojamiento. Asegúrate de seguir los pasos de instalación anteriores para configurar la aplicación en tu servidor.
 
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor crea una rama y luego envía una solicitud de extracción.
-
 ## Créditos
 
-???
+Desarrollador: Nelson Vásquez

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Condominio;
 use App\Models\Reservas;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,8 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        return view('reserva.create');
+        $condominios = Condominio::all();
+        return view('reserva.create', compact('condominios'));
     }
 
     /**
@@ -43,7 +44,7 @@ class ReservaController extends Controller
             'fecha' => 'required',
         ]);
         Reservas::create($request->all());
-        return redirect()->route('reserva.index')->with('success', 'reserva Creada Correctamente');
+        return redirect()->route('reserva.index')->with('success', 'Reserva Creada Correctamente');
     }
 
     /**
@@ -81,7 +82,7 @@ class ReservaController extends Controller
         $reserva = Reservas::findOrFail($id);
         $data = $request->only('departamento', 'condominio', 'fecha');
         $reserva->update($data);
-        return redirect()->route('reserva.index')->with('success', 'Reserva actualizada correctamente');
+        return redirect()->route('reserva.index')->with('success', 'Reserva actualizada correctamente', 100);
     }
 
     /**

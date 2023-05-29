@@ -37,18 +37,24 @@
                   </div>
                 </div>
               </div>
+              <!-- Select Condominio -->
               <div class="row">
                 <label class="col-sm-2 col-form-label">{{ __('Condominio') }}</label>
                 <div class="col-sm-7">
                   <div class="form-group{{ $errors->has('condominio') ? ' has-danger' : '' }}">
-                    <input class="form-control{{ $errors->has('condominio') ? ' is-invalid' : '' }}" name="condominio" id="input-condominio" type="text" placeholder="{{ __('Condominio') }}" value="{{ old('condominio') }}" required />
+                    <select class="form-control{{ $errors->has('condominio') ? ' is-invalid' : '' }}" name="condominio" id="select-condominio" type="text" value="{{ old('condominio') }}" required >
+                    <option disabled selected>Seleccione</option>
+                        @foreach ($condominios as $condominio)
+                        <option value="{{ $condominio->nombre }}">{{ $condominio->nombre }}</option>
+                        @endforeach
+                    </select >
                     @if ($errors->has('condominio'))
                     <span id="condominio-error" class="error text-danger" for="input-condominio">{{ $errors->first('condominio') }}</span>
                     @endif
                   </div>
                 </div>
               </div>
-
+              <!-- Fin Select Condominio -->
               <div class="row">
                 <label class="col-sm-2 col-form-label">{{ __('Fecha') }}</label>
                 <div class="col-sm-7">

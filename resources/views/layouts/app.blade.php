@@ -16,7 +16,7 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -29,8 +29,8 @@
             @include('layouts.page_templates.guest')
         @endguest
         @if (auth()->check())
-        <div class="fixed-plugin">
-          <!-- <div class="dropdown show-dropdown" -->
+        <!-- <div class="fixed-plugin">
+          <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
             </a>
@@ -100,8 +100,8 @@
                 <br>
               </li>
             </ul>
-          </div> -->
-        </div>
+          </div>
+        </div> -->
         @endif
         <!--   Core JS Files   -->
         <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
@@ -128,8 +128,10 @@
         <script src="{{ asset('material') }}/js/plugins/jasny-bootstrap.min.js"></script>
         <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
         <script src="{{ asset('material') }}/js/plugins/fullcalendar.min.js"></script>
+        <script src="{{ asset('material') }}/js/plugins/index.global.js"></script>
+        <script src="{{ asset('material') }}/js/plugins/index.global.min.js"></script>
         <!--     Scripts agenda     -->
-        <script src="{{ asset('js/agenda.js') }}" defer></script>
+        <script src="{{ asset('material') }}\js\plugins\calendar.js" defer></script>
         <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
         <script src="{{ asset('material') }}/js/plugins/jquery-jvectormap.js"></script>
         <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->

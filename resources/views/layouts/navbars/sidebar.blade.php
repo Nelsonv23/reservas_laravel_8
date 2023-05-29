@@ -20,7 +20,7 @@
       </li>
       <li class="nav-item{{ $activePage == 'reservas' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('reserva.index') }}">
-          <i class="material-icons">content_paste</i>
+          <i class="material-icons">content_paste_go</i>
             <p>{{ __('Gestión De Reservas') }}</p>
         </a>
       </li>
