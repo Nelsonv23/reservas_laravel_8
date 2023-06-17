@@ -91,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 	Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
 
-	//Rutas Agenda
+	//Rutas Evento/Agenda
 	Route::get('/evento', [EventoController::class, 'index'])->name('evento.index');
+	Route::post('/evento/agregar', [EventoController::class, 'store'])->name('evento.store');
 });

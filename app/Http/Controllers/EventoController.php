@@ -35,7 +35,8 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Evento::$rules);
+        $ecento = Evento::create($request->all());
     }
 
     /**

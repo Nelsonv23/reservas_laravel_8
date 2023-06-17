@@ -15,8 +15,8 @@
               <div class="container-fluid">
                 <div id="calendar" class="col-12 justify-content-center pb-5"></div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
-                  Launch
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#evento">
+                  Guardar
                 </button>
               </div>
             </div>
@@ -28,7 +28,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade mt-5 mt-5" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,34 +38,35 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="" action="">
-
-          <div class="form-group">
-            <label for="id">ID:</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+        <form action="POST">
+        @csrf
+        @method('STORE')
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="id" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
             <small id="helpId" class="form-text text-muted"></small>
           </div>
 
           <div class="form-group">
-            <label for="">Departamento</label>
-            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Ingrese N° de departamento">
+            <label for="title">N° Departamento</label>
+            <input type="text" class="form-control" name="departamento" id="departamento" aria-describedby="helpId" placeholder="">
             <small id="helpId" class="form-text text-muted"></small>
           </div>
 
           <div class="form-group">
-            <label for="">Detalles</label>
-            <textarea class="form-control" name="detalles" id="detalles" rows="3" placeholder="Ingrese detalles de la reserva"></textarea>
+            <label for="detalles">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="">
           </div>
 
           <div class="form-group">
-            <label for="start">start</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Fecha de inicio">
+            <label for="start">Fecha de inicio</label>
+            <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
             <small id="helpId" class="form-text text-muted"></small>
           </div>
 
           <div class="form-group">
-            <label for="end">end</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Fecha de termini">
+            <label for="end">Fecha de termino</label>
+            <input type="text" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
             <small id="helpId" class="form-text text-muted"></small>
           </div>
 
@@ -75,7 +76,7 @@
         <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
         <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
         <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
       </div>
     </div>
   </div>

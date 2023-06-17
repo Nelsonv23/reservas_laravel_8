@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg">{{ __('Ingresar') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('Ingresar') }}</button>
           </div>
         </div>
       </form>
