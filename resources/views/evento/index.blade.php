@@ -45,26 +45,17 @@
 
           </div>
           <div class="form-floating mb-3">
-
             <label for="departamento" class="form-label">Departamento</label>
             <input type="text" class="form-control" name="departamento" id="departamento">
-
           </div>
           <div class="form-floating mb-3">
-
             <label for="telefono" class="form-label">Teléfono</label>
             <input type="tel" class="form-control" name="telefono" id="telefono">
-
           </div>
           <div class="form-floating mb-3">
-
             <label for="start" class="form-label">Fecha</label>
             <input type="date" class="form-control" name="start" id="start">
-
           </div>
-
-        </div>
-        <div class="modal-footer">
 
         </div>
         <div class="modal-footer">
