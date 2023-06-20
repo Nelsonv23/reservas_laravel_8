@@ -36,7 +36,7 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         request()->validate(Evento::$rules);
-        $ecento = Evento::create($request->all());
+        $evento = Evento::create($request->all());
     }
 
     /**
@@ -83,4 +83,11 @@ class EventoController extends Controller
     {
         //
     }
+
+    public function agregar(Request $request)
+{
+    // Lógica para agregar un nuevo evento
+    $evento = Evento::create($request->all());
+    return response()->json(['message' => 'Evento agregado correctamente'], 200);
+}
 }

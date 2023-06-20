@@ -15,7 +15,7 @@
               <div class="container-fluid">
                 <div id="calendar" class="col-12 justify-content-center pb-5"></div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#evento">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                   Guardar
                 </button>
               </div>
@@ -28,56 +28,51 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade mt-5 mt-5" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Formulario de reserva</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="titulo"></h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <form action="POST">
-        @csrf
-        @method('STORE')
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="id" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
-            <small id="helpId" class="form-text text-muted"></small>
+
+      <form id="formulario" action="">
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+
+            <label for="title" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="title" id="title">
+
+          </div>
+          <div class="form-floating mb-3">
+
+            <label for="departamento" class="form-label">Departamento</label>
+            <input type="text" class="form-control" name="departamento" id="departamento">
+
+          </div>
+          <div class="form-floating mb-3">
+
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" name="telefono" id="telefono">
+
+          </div>
+          <div class="form-floating mb-3">
+
+            <label for="start" class="form-label">Fecha</label>
+            <input type="date" class="form-control" name="start" id="start">
+
           </div>
 
-          <div class="form-group">
-            <label for="title">N° Departamento</label>
-            <input type="text" class="form-control" name="departamento" id="departamento" aria-describedby="helpId" placeholder="">
-            <small id="helpId" class="form-text text-muted"></small>
-          </div>
+        </div>
+        <div class="modal-footer">
 
-          <div class="form-group">
-            <label for="detalles">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="">
-          </div>
-
-          <div class="form-group">
-            <label for="start">Fecha de inicio</label>
-            <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
-            <small id="helpId" class="form-text text-muted"></small>
-          </div>
-
-          <div class="form-group">
-            <label for="end">Fecha de termino</label>
-            <input type="text" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
-            <small id="helpId" class="form-text text-muted"></small>
-          </div>
-
-        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelar">Cancelar</button>
+        <button type="submit" class="btn btn-danger" id="btnEliminar">Eliminar</button>
+        <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
       </div>
-      <div class="modal-footer m-auto">
-        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
-        <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
-        <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-      </div>
+      </form>
     </div>
   </div>
 </div>
