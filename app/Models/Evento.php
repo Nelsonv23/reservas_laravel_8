@@ -10,11 +10,11 @@ class Evento extends Model
     use HasFactory;
 
     static $rules = [
-        ' nombre' => 'required', // Nombre
+        'nombre' => 'required', // Nombre
         'departamento' => 'required',
         'telefono' => 'required',
-        'start' => 'required'
+        'fecha' => 'required'
     ];
 
-    protected $fillable = ['nombre', 'departamento', 'telefono', 'start'];
+    protected $fillable = ['nombre', 'departamento', 'telefono', 'fecha'];
 }

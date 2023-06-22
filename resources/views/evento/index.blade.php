@@ -28,43 +28,38 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="titulo"></h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title text-primary" id="titulo">Realizar Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <form class="form-floating" action="{{ route('evento.store') }}" id="formulario" method="POST">
+          @csrf
 
-      <form id="formulario" action="">
-        <div class="modal-body">
-          <div class="form-floating mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" name="nombre" id="nombre">
 
-            <label for="title" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="title" id="title">
+          <label for="departamento" class="form-label">Departamento:</label>
+          <input type="text" class="form-control" name="departamento" id="departamento">
 
-          </div>
-          <div class="form-floating mb-3">
-            <label for="departamento" class="form-label">Departamento</label>
-            <input type="text" class="form-control" name="departamento" id="departamento">
-          </div>
-          <div class="form-floating mb-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" name="telefono" id="telefono">
-          </div>
-          <div class="form-floating mb-3">
-            <label for="start" class="form-label">Fecha</label>
-            <input type="date" class="form-control" name="start" id="start">
+          <label for="telefono" class="form-label">Teléfono:</label>
+          <input type="text" class="form-control" name="telefono" id="telefono">
+
+          <label for="fecha" class="form-label">Fecha:</label>
+          <input type="date" class="form-control" name="start" id="start">
+
+          <div class="modal-footer mt-5">
+            <button type="button" id="btnCancelar" class="btn btn-close" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
 
-        </div>
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCancelar">Cancelar</button>
-        <button type="submit" class="btn btn-danger" id="btnEliminar">Eliminar</button>
-        <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+        </form>
       </div>
-      </form>
     </div>
   </div>
 </div>
+
 @endsection

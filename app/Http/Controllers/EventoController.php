@@ -35,8 +35,26 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Evento::$rules);
-        $evento = Evento::create($request->all());
+    // Validar los datos recibidos
+    $request->validate([
+        'nombre' => 'required',
+        'departamento' => 'required',
+        'telefono' => 'required',
+        'fecha' => 'required',
+    ]);
+
+    // Crear un nuevo evento con los datos recibidos
+    $evento = new Evento();
+    $evento->nombre = $request->input('nombre');
+    $evento->departamento = $request->input('departamento');
+    $evento->telefono = $request->input('telefono');
+    $evento->fecha = $request->input('fecha');
+
+    // Guardar el evento en la base de datos
+    $evento->save();
+
+    // Retornar una respuesta de éxito
+    return redirect()->back()->with('success', 'Evento agregado exitosamente');
     }
 
     /**
@@ -84,10 +102,4 @@ class EventoController extends Controller
         //
     }
 
-    public function agregar(Request $request)
-{
-    // Lógica para agregar un nuevo evento
-    $evento = Evento::create($request->all());
-    return response()->json(['message' => 'Evento agregado correctamente'], 200);
-}
 }

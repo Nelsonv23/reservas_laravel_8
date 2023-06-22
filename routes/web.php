@@ -93,5 +93,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//Rutas Evento/Agenda
 	Route::get('/evento', [EventoController::class, 'index'])->name('evento.index');
-	Route::post('/evento/agregar', [EventoController::class, 'agregar']);
+	Route::post('/eventos', [EventoController::class, 'store'])->name('evento.store');
 });
