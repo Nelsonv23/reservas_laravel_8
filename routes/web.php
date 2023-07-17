@@ -34,17 +34,17 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.typography');
 	})->name('typography');
 
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
+	Route::get('web', function () {
+		return view('pages.web');
+	})->name('web');
 
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
+	Route::get('mapa', function () {
+		return view('pages.mapa');
+	})->name('mapa');
 
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
+	Route::get('notificaciones', function () {
+		return view('pages.notificaciones');
+	})->name('notificaciones');
 
 	Route::get('rtl-support', function () {
 		return view('pages.language');
@@ -93,5 +93,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//Rutas Evento/Agenda
 	Route::get('/evento', [EventoController::class, 'index'])->name('evento.index');
-	Route::post('/eventos', [EventoController::class, 'store'])->name('evento.store');
+	Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
 });

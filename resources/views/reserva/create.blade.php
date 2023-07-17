@@ -57,7 +57,7 @@
               <!-- Fin Select Condominio -->
               <div class="row">
                 <label class="col-sm-2 col-form-label">{{ __('Fecha') }}</label>
-                <div class="col-sm-7">
+                <div class="col-sm-2">
                   <div class="form-group{{ $errors->has('fecha') ? ' has-danger' : '' }}">
                     <input class="form-control{{ $errors->has('fecha') ? ' is-invalid' : '' }}" name="fecha" id="input-fecha" type="date" placeholder="{{ __('Fecha') }}" value="{{ old('fecha') }}" required />
                     @if ($errors->has('fecha'))

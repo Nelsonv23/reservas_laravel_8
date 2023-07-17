@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use App\Models\Condominio;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,10 @@ class CondominioController extends Controller
             'ciudad' => 'required'
         ]);
         Condominio::create($request->all());
-        return redirect()->route('condominio.index')->with('success', 'Condominio creado correctamente');
+
+        // Almacenar el mensaje en la sesión flash
+        Session::flash('success', 'Los datos se han guardado correctamente.');
+        return redirect()->route('condominio.index');
     }
 
     /**

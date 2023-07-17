@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
+<div class="sidebar" data-color="azure" data-background-color="black" data-image="{{ asset('material') }}/img/Sidebar_img.jpg">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="{{ route('home') }}" class="simple-text logo-normal">
-    <img src="{{ asset('material') }}/img/logo.png" alt="" width="130">
+    <img src="{{ asset('material') }}/img/logo.png" alt="InnovaProSur" width="130">
       <!-- {{ __('Innova Sur Pro') }} -->
     </a>
   </div>
@@ -75,28 +75,22 @@
             <p>{{ __('Table List') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('typography') }}">
-          <i class="material-icons">library_books</i>
-            <p>{{ __('Typography') }}</p>
+      <li class="nav-item{{ $activePage == 'web' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('web') }}">
+          <i class="material-icons">corporate_fare</i>
+          <p>{{ __('Sitio Web') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('icons') }}">
-          <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('map') }}">
+      <li class="nav-item{{ $activePage == 'mapa' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('mapa') }}">
           <i class="material-icons">location_ons</i>
-            <p>{{ __('Maps') }}</p>
+            <p>{{ __('Mapa') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('notifications') }}">
+      <li class="nav-item{{ $activePage == 'notificaciones' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('notificaciones') }}">
           <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
+          <p>{{ __('Notificaciones') }}</p>
         </a>
       </li>
       <li class="nav-item active-pro{{ $activePage == 'logout' ? ' active' : '' }}">

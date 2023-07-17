@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Condominio;
+use App\Models\Evento;
 use App\Models\Reservas;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class ReservaController extends Controller
     public function index()
     {
         $reservas = Reservas::all();
-        return view('reserva.index', compact('reservas'));
+        $eventos = Evento::all();
+        return view('reserva.index', compact('reservas', 'eventos'));
     }
 
     /**

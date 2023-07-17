@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let formulario = document.querySelector("form");
     var cancelarBtn = document.getElementById('btnCancelar');
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -15,14 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         dateClick: function (info) {
             $("#myModal").modal("show");
+            // Captura y muestra la fecha seleccionada en el formulario modal
             const fecha =
-            document.getElementById('start').value = info.dateStr;
+                document.getElementById('start').value = info.dateStr;
         }
-        
     });
-    btnCancelar.addEventListener('click', function() {
+
+   
+    cancelarBtn.addEventListener('click', function () {
         // Cerrar el modal usando Bootstrap o la biblioteca que estés utilizando
         $('#myModal').modal('hide');
-      });
+    });
     calendar.render();
 });

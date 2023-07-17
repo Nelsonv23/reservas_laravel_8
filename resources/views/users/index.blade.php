@@ -17,11 +17,11 @@
                         <p class="card-category"> Listado De Usuarios Temuco</p>
                     </div>
                     <div class="card-body">
-                        @if (session('success'))
+                        <!-- @if (session('success'))
                         <div class="alert alert-success" role="success">
                         {{ session('success') }}
                         </div>
-                        @endif
+                        @endif -->
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">

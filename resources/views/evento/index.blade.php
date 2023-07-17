@@ -49,7 +49,7 @@
           <input type="text" class="form-control" name="telefono" id="telefono">
 
           <label for="fecha" class="form-label">Fecha:</label>
-          <input type="date" class="form-control" name="start" id="start">
+          <input type="date" class="form-control" name="fecha" id="start">
 
           <div class="modal-footer mt-5">
             <button type="button" id="btnCancelar" class="btn btn-close" data-bs-dismiss="modal">Cerrar</button>

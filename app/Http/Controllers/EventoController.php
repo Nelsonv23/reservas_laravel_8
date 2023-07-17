@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 
@@ -35,26 +36,29 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-    // Validar los datos recibidos
-    $request->validate([
-        'nombre' => 'required',
-        'departamento' => 'required',
-        'telefono' => 'required',
-        'fecha' => 'required',
-    ]);
+        // Validar los datos recibidos
+        $request->validate([
+            'nombre' => 'required',
+            'departamento' => 'required',
+            'telefono' => 'required',
+            'fecha' => 'required',
+        ]);
 
-    // Crear un nuevo evento con los datos recibidos
-    $evento = new Evento();
-    $evento->nombre = $request->input('nombre');
-    $evento->departamento = $request->input('departamento');
-    $evento->telefono = $request->input('telefono');
-    $evento->fecha = $request->input('fecha');
+        // Crear un nuevo evento con los datos recibidos
+        $evento = new Evento();
+        $evento->nombre = $request->input('nombre');
+        $evento->departamento = $request->input('departamento');
+        $evento->telefono = $request->input('telefono');
+        $evento->fecha = $request->input('fecha');
 
-    // Guardar el evento en la base de datos
-    $evento->save();
+        // Guardar el evento en la base de datos
+        $evento->save();
 
-    // Retornar una respuesta de éxito
-    return redirect()->back()->with('success', 'Evento agregado exitosamente');
+        // Almacenar el mensaje en la sesión flash
+        Session::flash('success', 'Los datos se han guardado correctamente.');
+
+        // Retornar una respuesta de éxito
+        return redirect()->route('evento.index');
     }
 
     /**
@@ -101,5 +105,4 @@ class EventoController extends Controller
     {
         //
     }
-
 }
